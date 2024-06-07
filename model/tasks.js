@@ -49,4 +49,17 @@ function editTask(task) {
 	return update_content.get(task);
 }
 
-module.exports = { createTask, listTasks, removeTask, editTask };
+// Toggling a boolean
+
+const update_complete = db.prepare(/* sql */ `
+    UPDATE tasks
+    SET complete = NOT complete
+    WHERE id = ?
+    RETURNING id, content, created_at, complete
+`);
+
+function toggleTask(id) {
+	return update_complete.get(id);
+}
+
+module.exports = { createTask, listTasks, removeTask, editTask, toggleTask };
