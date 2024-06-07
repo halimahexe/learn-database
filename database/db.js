@@ -10,6 +10,5 @@ db.exec(schema);
 
 const select_table = db.prepare('SELECT name FROM sqlite_schema');
 const result = select_table.all();
-console.log(result);
 
 module.exports = db;
