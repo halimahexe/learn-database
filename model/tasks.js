@@ -26,8 +26,6 @@ function listTasks() {
 	return select_tasks.all();
 }
 
-console.log(listTasks());
-
 // Delete Tasks function
 
 const delete_task = db.prepare(/* sql */ `
@@ -38,9 +36,4 @@ function removeTask(id) {
 	delete_task.run(id);
 }
 
-removeTask(1);
-
 module.exports = { createTask, listTasks, removeTask };
-
-const result = createTask({ content: 'Make lunch', complete: 0 });
-console.log(result);
