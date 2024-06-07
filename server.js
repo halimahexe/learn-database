@@ -1,5 +1,7 @@
 const express = require('express');
 const server = express();
+const model = require('./model/tasks.js');
+const bodyParser = express.urlencoded({ extended: false });
 
 server.get('/', (req, res) => {
 	const body = /* html */ `
@@ -10,6 +12,15 @@ server.get('/', (req, res) => {
         </form>
     `;
 	res.send(body);
+});
+
+server.post('/', bodyParser, (req, res) => {
+	const task = {
+		content: req.body.content,
+		complete: 0,
+	};
+	model.createTask(task);
+	res.redirect('/');
 });
 
 module.exports = server;
