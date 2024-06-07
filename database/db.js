@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { readFileSync } = require('node:fs');
 const { join } = require('node:path');
 const Database = require('better-sqlite3');
