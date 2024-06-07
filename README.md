@@ -4,7 +4,7 @@ I am following the Founders and Coders `learn-database` tutorial, to learn about
 
 You can find and follow the tutorial [here](!https://learn.foundersandcoders.com/learn/database/).
 
-Note: if you're using Windows Powershell (like me), the tutorial doesn't include the correct commands to set environment variables. The easiest way to deal with this is by installing the `cross-env` package which allows you to set environment variables across platforms.
+Note: if you're using Windows Powershell (like me), the commands to set environment variables in the tutorial don't work out of the box. The easiest way to deal with this is by installing the `cross-env` package which allows you to set environment variables across platforms.
 
 You can install and run it as below:
 
