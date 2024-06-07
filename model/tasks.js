@@ -36,4 +36,17 @@ function removeTask(id) {
 	delete_task.run(id);
 }
 
-module.exports = { createTask, listTasks, removeTask };
+// Update a task function
+
+const update_content = db.prepare(/* sql */ `
+    UPDATE tasks
+    SET content = $content
+    WHERE id = $id
+    RETURNING id, content, created_at, complete    
+`);
+
+function editTask(task) {
+	return update_content.get(task);
+}
+
+module.exports = { createTask, listTasks, removeTask, editTask };
